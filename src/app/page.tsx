@@ -96,7 +96,7 @@ const defaultProfile: Profile = {
   profile_linkedin: "https://www.linkedin.com/in/astha-bisht-s291105/",
   profile_leetcode: "https://leetcode.com/u/Astha_299/",
   profile_image_url: "",
-  profile_resume_url: "/resume.pdf",
+  profile_resume_url: "/Resume.pdf",
 };
 
 
@@ -439,7 +439,7 @@ export default function Home() {
             </div>
 
             <div className="hero-resume">
-              <a href={profile.profile_resume_url || "/resume.pdf"} download>
+              <a href={profile.profile_resume_url === "/resume.pdf" ? "/Resume.pdf" : profile.profile_resume_url || "/Resume.pdf"} download>
                 Download Resume <ArrowUpRight size={16} />
               </a>
             </div>

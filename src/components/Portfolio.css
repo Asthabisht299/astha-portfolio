@@ -900,3 +900,10 @@
     gap: 18px;
   }
 }
+
+
+/* Prevent section labels from slipping underneath the sticky navigation on anchor jumps. */
+.portfolio-main section[id],
+.contact-section[id] {
+  scroll-margin-top: 132px;
+}

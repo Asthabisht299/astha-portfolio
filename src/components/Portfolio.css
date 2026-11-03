@@ -907,3 +907,336 @@
 .contact-section[id] {
   scroll-margin-top: 132px;
 }
+
+
+/* ===== Portfolio finishing pass: journey, projects, certificates and footer ===== */
+
+/* Journey: a quiet vertical guide ties the experience and education entries together. */
+.portfolio-main .timeline {
+  position: relative;
+  isolation: isolate;
+}
+.portfolio-main .timeline::before {
+  position: absolute;
+  z-index: -1;
+  top: 36px;
+  bottom: 36px;
+  left: 3px;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    rgba(139,154,128,.08),
+    rgba(139,154,128,.55) 18%,
+    rgba(139,154,128,.55) 82%,
+    rgba(139,154,128,.08)
+  );
+  content: "";
+}
+.portfolio-main .timeline-item > .timeline-date {
+  padding-left: 22px;
+}
+.portfolio-main .timeline-item > .timeline-date::before {
+  position: absolute;
+  top: 11px;
+  left: 0;
+  width: 7px;
+  height: 7px;
+  margin: 0;
+  border: 2px solid var(--ivory);
+  border-radius: 50%;
+  background: #91a486;
+  box-shadow: 0 0 0 1px rgba(139,154,128,.38);
+}
+.portfolio-main .timeline-item > div:last-child > .space-y-8 > div {
+  position: relative;
+  padding: 0 0 6px 18px;
+  border-left: 1px solid rgba(139,154,128,.18);
+}
+.portfolio-main .timeline-item > div:last-child > .space-y-8 > div:last-child {
+  border-left-color: transparent;
+}
+.portfolio-main .timeline-item > div:last-child > .space-y-8 > div > .timeline-date {
+  margin-bottom: 8px;
+  color: #91a486;
+}
+.portfolio-main .timeline-item > div:last-child > .space-y-8 > div > h3 {
+  margin-top: 0;
+}
+@media (max-width: 680px) {
+  .portfolio-main .timeline::before {
+    left: 3px;
+    top: 30px;
+    bottom: 30px;
+  }
+  .portfolio-main .timeline-item > .timeline-date {
+    padding-left: 22px;
+  }
+}
+
+/* Project cards: richer media stage, clear information hierarchy and stable actions. */
+.portfolio-main .project-card {
+  border-color: rgba(51,75,61,.16);
+  border-radius: 16px;
+  box-shadow: 0 8px 26px rgba(42,57,47,.035);
+}
+.portfolio-main .project-art {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  min-height: 0;
+  background:
+    radial-gradient(circle at 18% 18%, rgba(255,255,255,.82), transparent 32%),
+    linear-gradient(135deg, #e6e9dc 0%, #e8ddec 54%, #f0dfd4 100%);
+}
+.portfolio-main .project-art::before {
+  position: absolute;
+  inset: 12% 10%;
+  border: 1px solid rgba(255,255,255,.56);
+  border-radius: 12px;
+  content: "";
+  pointer-events: none;
+}
+.portfolio-main .project-screenshot {
+  inset: 7%;
+  width: 86%;
+  height: 86%;
+  overflow: hidden;
+  border: 5px solid rgba(255,255,255,.88);
+  border-radius: 9px;
+  background: #fff;
+  box-shadow: 0 18px 38px rgba(38,52,44,.16);
+}
+.portfolio-main .project-screenshot img {
+  object-fit: cover;
+  object-position: top center;
+}
+.portfolio-main .project-info {
+  padding: clamp(22px, 2.5vw, 30px);
+}
+.portfolio-main .project-meta {
+  width: 100%;
+  padding-bottom: 13px;
+  border-bottom: 1px solid rgba(51,75,61,.12);
+}
+.portfolio-main .project-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+.portfolio-main .project-status::before {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #91a486;
+  content: "";
+}
+.portfolio-main .project-info h3 {
+  margin-top: 20px;
+  font-size: clamp(24px, 2.3vw, 30px);
+  line-height: 1.15;
+}
+.portfolio-main .project-info > p {
+  min-height: 5.2em;
+  margin-bottom: 16px;
+  line-height: 1.85;
+}
+.portfolio-main .project-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.portfolio-main .project-stack span {
+  border: 1px solid rgba(51,75,61,.14);
+  border-radius: 999px;
+  background: rgba(255,255,255,.46);
+  padding: 7px 11px;
+  font-size: 11px;
+}
+.portfolio-main .project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 10px;
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(51,75,61,.12);
+}
+.portfolio-main .project-actions .project-link {
+  flex: 1 1 145px;
+  min-height: 46px;
+  border-radius: 5px;
+  white-space: normal;
+}
+.portfolio-main .project-actions .project-live-link {
+  border-color: rgba(51,75,61,.55);
+  background: transparent;
+  color: var(--forest) !important;
+}
+.portfolio-main .project-actions .project-live-link:hover {
+  background: var(--forest);
+  color: var(--ivory) !important;
+}
+@media (max-width: 680px) {
+  .portfolio-main .project-info > p {
+    min-height: 0;
+  }
+  .portfolio-main .project-screenshot {
+    inset: 6%;
+    width: 88%;
+    height: 88%;
+  }
+}
+
+/* Certificates: give each landscape document a consistent, framed presentation. */
+.portfolio-main .certificate-card {
+  overflow: hidden;
+  border: 1px solid rgba(51,75,61,.16);
+  border-radius: 15px;
+  background: rgba(255,255,255,.68);
+  box-shadow: 0 8px 26px rgba(42,57,47,.04);
+}
+.portfolio-main .certificate-preview {
+  position: relative;
+  aspect-ratio: 1.42 / 1;
+  min-height: 0;
+  padding: clamp(17px, 2.4vw, 27px);
+  background:
+    radial-gradient(circle at 10% 8%, rgba(217,201,232,.3), transparent 35%),
+    linear-gradient(145deg, #eeece4, #e5e7dc);
+}
+.portfolio-main .certificate-preview::before {
+  position: absolute;
+  inset: 13px;
+  border: 1px solid rgba(51,75,61,.12);
+  border-radius: 5px;
+  content: "";
+  pointer-events: none;
+}
+.portfolio-main .certificate-preview img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  padding: 7px;
+  border: 1px solid rgba(51,75,61,.1);
+  background: #fff;
+  box-shadow: 0 12px 25px rgba(38,52,44,.13);
+  object-fit: contain;
+}
+.portfolio-main .certificate-card-info {
+  padding: 22px 25px 25px;
+}
+.portfolio-main .certificate-card-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(51,75,61,.12);
+}
+.portfolio-main .certificate-card-info h3 {
+  margin-top: 17px;
+  font-size: clamp(22px, 2vw, 27px);
+}
+.portfolio-main .certificate-actions {
+  gap: 10px;
+}
+.portfolio-main .certificate-actions a {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 13px;
+  border: 1px solid rgba(51,75,61,.35);
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background .2s ease, color .2s ease, border-color .2s ease;
+}
+.portfolio-main .certificate-actions a:first-child {
+  border-color: var(--forest);
+  background: var(--forest);
+  color: var(--ivory);
+}
+.portfolio-main .certificate-actions a:hover {
+  border-color: var(--forest);
+  background: var(--forest);
+  color: var(--ivory);
+}
+@media (max-width: 680px) {
+  .portfolio-main .certificate-preview {
+    aspect-ratio: 1.3 / 1;
+  }
+  .portfolio-main .certificate-card-info {
+    padding: 19px 20px 22px;
+  }
+}
+
+/* Footer: a considered closing note with clearly grouped social destinations. */
+.portfolio-main .footer {
+  position: relative;
+  margin-top: 0;
+  padding-top: 30px;
+  padding-bottom: 34px;
+  border-top: 1px solid rgba(51,75,61,.16);
+}
+.portfolio-main .footer > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.portfolio-main .footer > div:first-child > span {
+  color: var(--forest);
+  font-family: var(--font-playfair), Georgia, serif;
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: -.04em;
+}
+.portfolio-main .footer > div:first-child p {
+  margin: 3px 0 0;
+  font-size: 12px;
+  line-height: 1.7;
+}
+.portfolio-main .footer-links {
+  gap: 9px;
+}
+.portfolio-main .footer-links a {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 0 12px;
+  border: 1px solid rgba(51,75,61,.18);
+  border-radius: 999px;
+  background: rgba(255,255,255,.3);
+  color: var(--forest);
+  font-size: 11px;
+  text-decoration: none;
+  transition: transform .2s ease, background .2s ease, border-color .2s ease;
+}
+.portfolio-main .footer-links a:hover {
+  transform: translateY(-2px);
+  border-color: var(--forest);
+  background: rgba(255,255,255,.75);
+}
+.portfolio-main .footer-links .admin-access {
+  border-color: transparent;
+  background: transparent;
+  color: var(--muted);
+}
+@media (max-width: 680px) {
+  .portfolio-main .footer {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 25px;
+  }
+  .portfolio-main .footer-links {
+    width: 100%;
+    gap: 8px;
+  }
+  .portfolio-main .footer-links a {
+    min-height: 38px;
+    padding-inline: 10px;
+  }
+}

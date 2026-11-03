@@ -87,7 +87,7 @@ type Profile = {
 
 const defaultProfile: Profile = {
   profile_name: "Astha Bisht",
-  profile_role: "Frontend Developer",
+  profile_role: "Full-Stack Developer",
   profile_location: "Dehradun, Uttarakhand, India",
   profile_email: "bishtaastha123@gmail.com",
   profile_intro: "I build clean, responsive digital experiences with thoughtful design and modern web technologies.",

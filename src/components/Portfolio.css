@@ -1411,3 +1411,325 @@
     transition: none;
   }
 }
+
+
+/* ===== Final portfolio polish: content hierarchy, responsive behaviour and accessibility ===== */
+
+/* About: a more intentional editorial composition without adding clutter. */
+.portfolio-main #about .about-grid {
+  grid-template-columns: minmax(180px, .62fr) minmax(0, 1.38fr);
+  gap: clamp(34px, 7vw, 96px);
+  align-items: center;
+}
+.portfolio-main #about .about-stamp {
+  position: relative;
+  width: min(210px, 100%);
+  margin-inline: auto;
+  box-shadow: 0 20px 48px rgba(51,75,61,.07), inset 0 0 0 10px rgba(255,255,255,.22);
+}
+.portfolio-main #about .about-stamp::before,
+.portfolio-main #about .about-stamp::after {
+  position: absolute;
+  border: 1px solid rgba(51,75,61,.13);
+  border-radius: 50%;
+  content: "";
+  pointer-events: none;
+}
+.portfolio-main #about .about-stamp::before { inset: -13px; }
+.portfolio-main #about .about-stamp::after { inset: 15px; border-style: dashed; opacity: .65; }
+.portfolio-main #about .about-copy {
+  max-width: 720px;
+  padding-left: clamp(0px, 2vw, 24px);
+}
+.portfolio-main #about .about-copy p {
+  max-width: 66ch;
+  line-height: 1.95;
+}
+.portfolio-main #about .about-copy p:first-child {
+  font-size: clamp(17px, 1.5vw, 20px);
+  line-height: 1.85;
+}
+.portfolio-main #about .about-signature {
+  display: inline-block;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(155,131,178,.45);
+}
+
+/* Skills: readable individual tags replace a dense inline technology sentence. */
+.portfolio-main .skills-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+.portfolio-main .skill-card {
+  min-height: 0;
+  padding: clamp(22px, 2.8vw, 32px);
+  border-radius: 14px;
+}
+.portfolio-main .skill-card-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.portfolio-main .skill-card-count {
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.portfolio-main .skill-card h3 {
+  margin: 23px 0 17px;
+  font-size: clamp(22px, 2vw, 27px);
+}
+.portfolio-main .skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.portfolio-main .skill-list li {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  min-height: 34px;
+  padding: 7px 11px;
+  border: 1px solid rgba(51,75,61,.13);
+  border-radius: 999px;
+  background: rgba(255,255,255,.52);
+  color: var(--forest);
+  font-size: 11px;
+  line-height: 1.3;
+}
+.portfolio-main .skill-list li small {
+  color: #7f8e75;
+  font-size: 9px;
+}
+
+/* Journey: consistent nested entries and safe wrapping at narrow widths. */
+.portfolio-main .timeline-item > div:last-child {
+  overflow-wrap: anywhere;
+}
+.portfolio-main .timeline-item > div:last-child > .space-y-8 > div {
+  padding-bottom: 15px;
+}
+.portfolio-main .timeline-item > div:last-child > .space-y-8 > div > p {
+  max-width: 70ch;
+}
+
+/* Project links: retain card height even when a project has no public URLs. */
+.portfolio-main .project-links-pending {
+  display: inline-flex;
+  align-items: center;
+  min-height: 42px;
+  color: var(--muted);
+  font-size: 11px;
+  font-style: italic;
+}
+.portfolio-main .project-actions a:focus-visible,
+.portfolio-main .certificate-actions a:focus-visible,
+.portfolio-main .footer-links a:focus-visible,
+.portfolio-main .hero a:focus-visible,
+.portfolio-main .contact-button:focus-visible {
+  outline: 3px solid #9b83b2;
+  outline-offset: 4px;
+}
+
+/* Certificates: explicit fallback text when a document URL is not available. */
+.portfolio-main .certificate-unavailable {
+  margin: 16px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+/* Contact: stronger action hierarchy and balanced copy width. */
+.portfolio-main + .contact-section,
+.contact-section {
+  position: relative;
+}
+.contact-section .contact-inner {
+  align-items: center;
+}
+.contact-section .section-kicker {
+  margin-bottom: 20px;
+}
+.contact-section .contact-button {
+  display: inline-flex;
+  min-height: 54px;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 0 24px;
+  border: 1px solid var(--forest);
+  border-radius: 6px;
+  background: var(--forest);
+  color: var(--ivory);
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+.contact-section .contact-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 13px 28px rgba(51,75,61,.16);
+  background: #263b30;
+}
+
+/* Keyboard skip link: visible only when focused. */
+.portfolio-main .skip-to-content {
+  position: fixed;
+  z-index: 1000;
+  top: 12px;
+  left: 12px;
+  padding: 12px 16px;
+  transform: translateY(-160%);
+  border-radius: 6px;
+  background: var(--forest);
+  color: var(--ivory);
+  font-size: 13px;
+  text-decoration: none;
+  transition: transform .18s ease;
+}
+.portfolio-main .skip-to-content:focus {
+  transform: translateY(0);
+}
+
+/* Global focus treatment for links and controls inside the portfolio. */
+.portfolio-main a:focus-visible,
+.portfolio-main button:focus-visible {
+  outline: 3px solid #9b83b2;
+  outline-offset: 4px;
+}
+.portfolio-main a,
+.portfolio-main button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Responsive layout audit. */
+@media (max-width: 900px) {
+  .portfolio-main #about .about-grid {
+    grid-template-columns: minmax(130px, .45fr) minmax(0, 1.55fr);
+    gap: 34px;
+  }
+  .portfolio-main #about .about-stamp {
+    width: min(165px, 100%);
+  }
+  .portfolio-main .timeline-item {
+    grid-template-columns: minmax(125px, .55fr) minmax(0, 1.45fr);
+    gap: 28px;
+  }
+  .contact-section .contact-inner {
+    align-items: flex-start;
+  }
+}
+@media (max-width: 680px) {
+  .portfolio-main .section {
+    padding: 66px 0;
+    scroll-margin-top: 82px;
+  }
+  .portfolio-main .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 17px;
+    margin-bottom: 32px;
+  }
+  .portfolio-main .section-side-note {
+    max-width: 48ch;
+  }
+  .portfolio-main #about .about-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .portfolio-main #about .about-stamp {
+    width: 132px;
+  }
+  .portfolio-main #about .about-copy {
+    padding-left: 0;
+  }
+  .portfolio-main #about .about-copy p:first-child {
+    font-size: 17px;
+  }
+  .portfolio-main .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .portfolio-main .skill-card {
+    padding: 23px;
+  }
+  .portfolio-main .skill-card h3 {
+    margin: 18px 0 14px;
+  }
+  .portfolio-main .timeline-item {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 26px 0;
+  }
+  .portfolio-main .timeline-item > .timeline-date {
+    padding-left: 22px;
+  }
+  .portfolio-main .timeline-item > div:last-child {
+    padding-left: 22px;
+  }
+  .portfolio-main .project-grid,
+  .portfolio-main .certificate-grid {
+    grid-template-columns: 1fr;
+  }
+  .portfolio-main .project-actions .project-link {
+    flex: 1 1 100%;
+  }
+  .portfolio-main .certificate-actions a {
+    flex: 1 1 auto;
+  }
+  .contact-section {
+    padding: 64px 0;
+  }
+  .contact-section .contact-inner {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 26px;
+  }
+  .contact-section .contact-button {
+    width: 100%;
+  }
+}
+@media (max-width: 380px) {
+  .portfolio-main .site-shell,
+  .contact-section .site-shell {
+    width: calc(100% - 32px);
+  }
+  .portfolio-main .skill-list {
+    gap: 7px;
+  }
+  .portfolio-main .skill-list li {
+    font-size: 10px;
+    padding: 7px 9px;
+  }
+  .portfolio-main .certificate-actions {
+    flex-direction: column;
+  }
+  .portfolio-main .certificate-actions a {
+    width: 100%;
+  }
+}
+
+/* Prevent accidental horizontal scrolling and honour reduced-motion preferences. */
+html {
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .portfolio-main *,
+  .portfolio-main *::before,
+  .portfolio-main *::after,
+  .contact-section *,
+  .contact-section *::before,
+  .contact-section *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+}

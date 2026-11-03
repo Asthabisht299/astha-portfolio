@@ -174,7 +174,7 @@ export default function Home() {
         const response = await fetch("/api/profile", { cache: "no-store" });
         const data = await response.json();
         if (response.ok && data.success && data.profile && active) {
-          setProfile({ ...defaultProfile, ...data.profile });
+          setProfile({ ...defaultProfile, ...data.profile, profile_role: "Full-Stack Developer" });
         }
       } catch (error) {
         console.error("Profile loading error:", error);

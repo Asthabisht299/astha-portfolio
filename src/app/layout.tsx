@@ -13,9 +13,47 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Astha Bisht | Frontend Developer",
+  title: {
+    default: "Astha Bisht | Frontend Developer",
+    template: "%s | Astha Bisht",
+  },
   description:
-    "Astha Bisht is a frontend developer creating thoughtful, responsive digital experiences.",
+    "Explore Astha Bisht's frontend development portfolio, selected projects, technical skills, experience and certificates.",
+  applicationName: "Astha Bisht Portfolio",
+  authors: [{ name: "Astha Bisht" }],
+  creator: "Astha Bisht",
+  keywords: [
+    "Astha Bisht",
+    "Frontend Developer",
+    "Web Developer",
+    "React",
+    "JavaScript",
+    "Next.js",
+    "Portfolio",
+  ],
+  openGraph: {
+    type: "website",
+    title: "Astha Bisht | Frontend Developer",
+    description:
+      "Selected projects, skills and experiences in frontend and web development.",
+    siteName: "Astha Bisht Portfolio",
+    locale: "en_IN",
+  },
+  twitter: {
+    card: "summary",
+    title: "Astha Bisht | Frontend Developer",
+    description:
+      "Selected projects, skills and experiences in frontend and web development.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+    },
+  },
 };
 
 export default function RootLayout({

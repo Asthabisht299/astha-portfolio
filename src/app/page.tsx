@@ -4,7 +4,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import Navbar from "../components/Navbar";
-import heroStyles from "../components/Hero.module.css";
+import "../components/Portfolio.css";
 import {
   ArrowDown,
   ArrowUpRight,
@@ -374,7 +374,7 @@ export default function Home() {
   const skillGroups = Object.entries(groupedSkills);
 
   return (
-    <main className={`portfolio-main ${heroStyles.portfolio}`}>
+    <main className="portfolio-main">
       {/* AMBIENT BACKGROUND */}
       <div className="ambient-background" aria-hidden="true">
         <span className="ambient-orb orb-one" />

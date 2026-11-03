@@ -1733,3 +1733,107 @@ html {
     transition-duration: .01ms !important;
   }
 }
+
+
+/* ===== Profile image fit + responsive finishing pass ===== */
+.portfolio-main .art-circle {
+  overflow: hidden;
+  isolation: isolate;
+}
+.portfolio-main .art-center {
+  inset: 0;
+  overflow: hidden;
+  border: 7px solid rgba(255,255,255,.78);
+  border-radius: 50%;
+}
+.portfolio-main .art-profile-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  object-fit: cover;
+  object-position: center center;
+  border-radius: 50%;
+}
+
+/* Prevent grid children and long text from causing horizontal scrolling. */
+.portfolio-main,
+.portfolio-main .site-shell,
+.portfolio-main .hero,
+.portfolio-main .section,
+.portfolio-main .about-grid,
+.portfolio-main .skills-grid,
+.portfolio-main .project-grid,
+.portfolio-main .certificate-grid,
+.portfolio-main .timeline-item {
+  min-width: 0;
+}
+.portfolio-main img,
+.portfolio-main video {
+  max-width: 100%;
+}
+.portfolio-main h1,
+.portfolio-main h2,
+.portfolio-main h3,
+.portfolio-main p,
+.portfolio-main a {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 900px) {
+  .portfolio-main .hero {
+    grid-template-columns: minmax(0, 1fr) minmax(250px, .8fr);
+    align-items: center;
+  }
+  .portfolio-main .hero-art {
+    min-height: 340px;
+  }
+}
+@media (max-width: 680px) {
+  .portfolio-main .hero {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .portfolio-main .hero-art {
+    width: min(100%, 360px);
+    min-height: 300px;
+  }
+  .portfolio-main .art-circle {
+    width: min(76vw, 285px);
+  }
+  .portfolio-main .art-center {
+    border-width: 5px;
+  }
+  .portfolio-main .section-heading {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .portfolio-main .about-grid,
+  .portfolio-main .skills-grid,
+  .portfolio-main .project-grid,
+  .portfolio-main .certificate-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .portfolio-main .project-card,
+  .portfolio-main .certificate-card,
+  .portfolio-main .skill-card {
+    min-width: 0;
+  }
+  .portfolio-main .hero-actions,
+  .portfolio-main .project-actions,
+  .portfolio-main .certificate-actions {
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 380px) {
+  .portfolio-main .site-shell {
+    width: calc(100% - 28px);
+  }
+  .portfolio-main .hero h1 {
+    font-size: clamp(42px, 13vw, 52px);
+  }
+  .portfolio-main .art-circle {
+    width: min(74vw, 255px);
+  }
+}

@@ -650,3 +650,193 @@
     transition-duration: .01ms !important;
   }
 }
+
+
+/* --- Responsive finishing pass: tablet, mobile and small screens --- */
+.portfolio-main,
+.portfolio-main * {
+  box-sizing: border-box;
+}
+.portfolio-main {
+  width: 100%;
+  min-width: 0;
+}
+.portfolio-main .site-shell {
+  min-width: 0;
+}
+.portfolio-main section[id] {
+  scroll-margin-top: 100px;
+}
+.portfolio-main .section-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: clamp(24px, 5vw, 72px);
+}
+.portfolio-main .section-heading > * {
+  min-width: 0;
+}
+.portfolio-main .section-side-note {
+  max-width: 390px;
+}
+.portfolio-main .hero > * {
+  min-width: 0;
+}
+.portfolio-main .hero-description,
+.portfolio-main .about-copy,
+.portfolio-main .timeline-item,
+.portfolio-main .project-info,
+.portfolio-main .certificate-card {
+  overflow-wrap: anywhere;
+}
+.portfolio-main .hero-socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 24px;
+}
+.portfolio-main .hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 22px;
+}
+.portfolio-main .primary-button,
+.portfolio-main .hero-resume a,
+.portfolio-main .project-actions a,
+.portfolio-main .certificate-actions a {
+  min-height: 44px;
+}
+.portfolio-main .project-info h3,
+.portfolio-main .certificate-card h3,
+.portfolio-main .timeline-item h3 {
+  overflow-wrap: anywhere;
+}
+@media (max-width: 1024px) {
+  .portfolio-main .site-shell,
+  .contact-section .site-shell {
+    width: min(100% - 64px, 900px);
+  }
+  .portfolio-main .section {
+    padding-block: clamp(64px, 8vw, 88px);
+  }
+}
+@media (max-width: 820px) {
+  .portfolio-main .site-shell,
+  .contact-section .site-shell {
+    width: calc(100% - 48px);
+  }
+  .portfolio-main .hero {
+    grid-template-columns: minmax(0, 1fr) minmax(220px, .72fr);
+    gap: 22px;
+  }
+  .portfolio-main .hero h1 {
+    font-size: clamp(52px, 7.5vw, 72px);
+  }
+  .portfolio-main .section-heading h2 {
+    font-size: clamp(42px, 6.5vw, 62px);
+  }
+  .portfolio-main .about-grid {
+    gap: 28px;
+  }
+}
+@media (max-width: 680px) {
+  .portfolio-main .site-shell,
+  .contact-section .site-shell {
+    width: calc(100% - 36px);
+  }
+  .portfolio-main .section {
+    padding-block: 58px;
+  }
+  .portfolio-main .section-heading {
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 32px;
+  }
+  .portfolio-main .section-heading h2 {
+    font-size: clamp(39px, 11vw, 54px);
+    line-height: 1.04;
+  }
+  .portfolio-main .section-side-note {
+    max-width: 100%;
+    font-size: 14px;
+    line-height: 1.75;
+  }
+  .portfolio-main .hero {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 0;
+    padding: 54px 0 52px;
+    gap: 24px;
+  }
+  .portfolio-main .hero h1 {
+    font-size: clamp(50px, 13.5vw, 70px);
+    line-height: .99;
+  }
+  .portfolio-main .hero-description {
+    max-width: 52ch;
+    font-size: 15px;
+    line-height: 1.8;
+  }
+  .portfolio-main .hero-art {
+    width: min(100%, 370px);
+    min-height: 300px;
+    margin-inline: auto;
+  }
+  .portfolio-main .art-circle {
+    width: min(78vw, 300px);
+  }
+  .portfolio-main .about-grid {
+    grid-template-columns: 1fr;
+  }
+  .portfolio-main .about-stamp {
+    width: 74px;
+    height: 74px;
+  }
+  .portfolio-main .project-grid,
+  .portfolio-main .certificate-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .portfolio-main .project-card:hover {
+    transform: none;
+  }
+  .portfolio-main .project-actions {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .portfolio-main .project-actions .project-link {
+    flex: 1 1 135px;
+  }
+  .portfolio-main .certificate-preview {
+    aspect-ratio: 1.35 / 1;
+  }
+  .portfolio-main .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 380px) {
+  .portfolio-main .site-shell,
+  .contact-section .site-shell {
+    width: calc(100% - 28px);
+  }
+  .portfolio-main .hero h1 {
+    font-size: clamp(46px, 12.5vw, 54px);
+  }
+  .portfolio-main .hero-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .portfolio-main .hero-actions > a {
+    justify-content: center;
+    width: 100%;
+  }
+  .portfolio-main .hero-socials {
+    gap: 12px 16px;
+  }
+  .portfolio-main .project-actions .project-link {
+    flex-basis: 100%;
+  }
+}
+@media (hover: none) {
+  .portfolio-main .project-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}

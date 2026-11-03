@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
-import styles from "./Navbar.module.css";
+import "./Navbar.css";
 
 const links = [
   { label: "About", href: "#about" },
@@ -49,15 +49,15 @@ export default function Navbar() {
   const closeMenu = () => setMenuOpen(false);
 
   return (
-    <header className={styles.header}>
-      <nav className={styles.navbar} aria-label="Main navigation">
-        <a href="#home" className={styles.logo} onClick={closeMenu} aria-label="Astha home">
+    <header className="astha-nav-header">
+      <nav className="astha-navbar" aria-label="Main navigation">
+        <a href="#home" className="astha-nav-logo" onClick={closeMenu} aria-label="Astha home">
           astha<span>.</span>
         </a>
 
         <button
           type="button"
-          className={styles.menuButton}
+          className="astha-nav-menu-button"
           aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
           aria-expanded={menuOpen}
           aria-controls="primary-navigation"
@@ -68,7 +68,7 @@ export default function Navbar() {
 
         <div
           id="primary-navigation"
-          className={`${styles.links} ${menuOpen ? styles.linksOpen : ""}`}
+          className={`astha-nav-links ${menuOpen ? "astha-nav-links-open" : ""}`}
         >
           {links.map((link) => (
             <a
@@ -76,7 +76,7 @@ export default function Navbar() {
               href={link.href}
               onClick={closeMenu}
               aria-current={activeSection === link.href.slice(1) ? "location" : undefined}
-              className={`${styles.link} ${activeSection === link.href.slice(1) ? styles.active : ""} ${link.href === "#contact" ? styles.contact : ""}`}
+              className={`astha-nav-link ${activeSection === link.href.slice(1) ? "astha-nav-active" : ""} ${link.href === "#contact" ? "astha-nav-contact" : ""}`}
             >
               {link.label}
               {link.href === "#contact" && <ArrowUpRight size={14} />}

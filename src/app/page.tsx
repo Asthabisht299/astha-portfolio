@@ -3,6 +3,7 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
+import Navbar from "@/components/Navbar";
 import {
   ArrowDown,
   ArrowUpRight,
@@ -383,22 +384,7 @@ export default function Home() {
 
       <div className="site-shell">
         {/* NAVIGATION */}
-        <nav className="navbar">
-          <a href="#home" className="logo" aria-label="Astha home">
-            astha<span>.</span>
-          </a>
-
-          <div className="nav-links">
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#experience">Journey</a>
-            <a href="#projects">Projects</a>
-            <a href="#certifications">Certificates</a>
-            <a href="#contact" className="nav-contact">
-              Let&apos;s talk <ArrowUpRight size={13} />
-            </a>
-          </div>
-        </nav>
+        <Navbar />
 
         {/* HERO */}
         <section className="hero" id="home">

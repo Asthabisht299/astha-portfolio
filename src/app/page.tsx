@@ -375,6 +375,7 @@ export default function Home() {
 
   return (
     <main className="portfolio-main">
+      <a className="skip-to-content" href="#about">Skip to content</a>
       {/* AMBIENT BACKGROUND */}
       <div className="ambient-background" aria-hidden="true">
         <span className="ambient-orb orb-one" />
@@ -569,25 +570,29 @@ export default function Home() {
           ) : (
             <div className="skills-grid">
               {skillGroups.map(([category, categorySkills], index) => (
-                <div className="skill-card" key={category}>
-                  <span className="skill-number">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
+                <article className="skill-card" key={category}>
+                  <div className="skill-card-heading">
+                    <span className="skill-number">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <span className="skill-card-count">
+                      {String(categorySkills.length).padStart(2, "0")} skills
+                    </span>
+                  </div>
 
                   <h3>{category}</h3>
 
-                  <p>
-                    {categorySkills
-                      .map(
-                        (skill) =>
-                          skill.name +
-                          (skill.proficiency
-                            ? ` (${skill.proficiency})`
-                            : "")
-                      )
-                      .join(" · ")}
-                  </p>
-                </div>
+                  <ul className="skill-list" aria-label={`${category} skills`}>
+                    {categorySkills.map((skill) => (
+                      <li key={skill.id}>
+                        <span>{skill.name}</span>
+                        {skill.proficiency && (
+                          <small>{skill.proficiency}</small>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                </article>
               ))}
             </div>
           )}
@@ -781,6 +786,11 @@ export default function Home() {
                       </div>
 
                       <div className="project-actions">
+                        {!project.github_url && !project.project_url && (
+                          <span className="project-links-pending">
+                            Project links coming soon
+                          </span>
+                        )}
                         {project.github_url && (
                           <a
                             href={project.github_url}
@@ -908,7 +918,7 @@ export default function Home() {
                       </p>
                     )}
 
-                    {certificate.certificate_url && (
+                    {certificate.certificate_url ? (
                       <div className="certificate-actions">
                         <a
                           href={certificate.certificate_url}
@@ -923,6 +933,10 @@ export default function Home() {
                           Download
                         </a>
                       </div>
+                    ) : (
+                      <p className="certificate-unavailable">
+                        Certificate file will be available soon.
+                      </p>
                     )}
                   </div>
                 </motion.article>

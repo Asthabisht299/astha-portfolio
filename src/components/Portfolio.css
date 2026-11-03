@@ -306,8 +306,38 @@
 .portfolio-main .project-stack { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
 .portfolio-main .project-stack span { padding: 7px 10px; border: 1px solid rgba(51,75,61,.13); border-radius: 999px; color: var(--muted); font-size: 10px; }
 .portfolio-main .project-actions { display: flex; flex-wrap: wrap; gap: 17px; margin-top: 22px; }
-.portfolio-main .project-link { display: inline-flex; align-items: center; gap: 7px; color: var(--forest); font-size: 12px; font-weight: 700; }
-.portfolio-main .project-link:hover { color: #9b83b2; }
+.portfolio-main .project-actions .project-link {
+  display: inline-flex;
+  min-height: 52px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 19px;
+  border: 1px solid var(--forest);
+  border-radius: 3px;
+  background: var(--forest);
+  color: var(--ivory) !important;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: transform .2s ease, background .2s ease, color .2s ease, box-shadow .2s ease;
+}
+.portfolio-main .project-actions .project-link:hover {
+  transform: translateY(-3px);
+  background: #263b30;
+  color: #fff !important;
+  box-shadow: 0 10px 22px rgba(51,75,61,.16);
+}
+.portfolio-main .project-actions .project-live-link {
+  background: transparent;
+  color: var(--forest) !important;
+}
+.portfolio-main .project-actions .project-live-link:hover {
+  background: var(--forest);
+  color: var(--ivory) !important;
+}
 .portfolio-main .certificate-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 22px; }
 .portfolio-main .certificate-card { overflow: hidden; border: 1px solid rgba(51,75,61,.13); border-radius: 12px; background: rgba(255,255,255,.58); }
 .portfolio-main .certificate-preview { position: relative; display: grid; min-height: 250px; place-items: center; overflow: hidden; background: #eeece4; }

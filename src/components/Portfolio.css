@@ -1837,3 +1837,48 @@ html {
     width: min(74vw, 255px);
   }
 }
+
+
+/* Footer fix: keep the Admin Access label on one line on narrow screens. */
+.portfolio-main .footer-links {
+  display: flex;
+  flex: 0 1 auto;
+  min-width: 0;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+}
+.portfolio-main .footer-links > a {
+  flex: 0 0 auto;
+  white-space: nowrap;
+  word-break: normal;
+  overflow-wrap: normal;
+}
+.portfolio-main .footer-links .admin-access {
+  width: auto;
+  min-width: max-content;
+  flex-shrink: 0;
+  white-space: nowrap;
+  gap: 6px;
+}
+.portfolio-main .footer-links .admin-access span {
+  display: inline-block;
+  white-space: nowrap;
+  word-break: keep-all;
+  overflow-wrap: normal;
+}
+@media (max-width: 420px) {
+  .portfolio-main .footer-links {
+    max-width: 100%;
+    column-gap: 7px;
+    row-gap: 8px;
+  }
+  .portfolio-main .footer-links > a {
+    min-height: 36px;
+    padding-inline: 9px;
+  }
+  .portfolio-main .footer-links .admin-access {
+    min-width: max-content;
+    padding-inline: 8px;
+  }
+}
